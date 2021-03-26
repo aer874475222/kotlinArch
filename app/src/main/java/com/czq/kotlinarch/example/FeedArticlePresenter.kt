@@ -10,15 +10,15 @@ import com.czq.kotlin_arch.paging.offset.OffsetStrategy
 import com.czq.kotlinarch.data.model.FeedArticle
 import com.czq.kotlinarch.data.remote.RemoteDataRepository
 import com.czq.kotlinarch.data.viewModel.BannerList
-import com.uber.autodispose.lifecycle.autoDisposable
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
+
 import com.hwangjr.rxbus.thread.EventThread
 import com.hwangjr.rxbus.annotation.Subscribe
 import com.hwangjr.rxbus.annotation.Tag
-
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.schedulers.Schedulers
+import autodispose2.autoDispose
 
 class FeedArticlePresenter(override val mView: FeedArticleContract.IView) : BasePagingPrensenterImpl(mView),
         FeedArticleContract.IPresenter {
@@ -27,7 +27,7 @@ class FeedArticlePresenter(override val mView: FeedArticleContract.IView) : Base
     }
 
     override fun getPagingStrategy(): PagingStrategy? {
-        return OffsetStrategy(10, "id")
+        return OffsetStrategy(10,"id")
     }
 
     @SuppressLint("CheckResult")
@@ -45,7 +45,7 @@ class FeedArticlePresenter(override val mView: FeedArticleContract.IView) : Base
                         map
                     }).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .autoDisposable(mView.autoDispose())
+                    .autoDispose(mView.autoDispose())
                     .subscribe({ it ->
                         val feedArticles = it.get("feedArticles") as? List<Any>
                         val bannerList = it.get("bannerList") as? BannerList
@@ -66,7 +66,7 @@ class FeedArticlePresenter(override val mView: FeedArticleContract.IView) : Base
             getFeedArticle(pageInfo.pageSize, pageInfo.offsetId, pageInfo.type)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .autoDisposable(mView.autoDispose())
+                    .autoDispose(mView.autoDispose())
                     .subscribe({ it ->
                         pagingList.addAll(it ?: arrayListOf())//用于计算分页的数据
                         datasource.addAll(it ?: arrayListOf())

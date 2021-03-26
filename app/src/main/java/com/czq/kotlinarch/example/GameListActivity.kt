@@ -81,5 +81,9 @@ class GameListActivity : BasePagingActivity<GameListContact.PagingListPresenter>
         return R.layout.activity_game_list
     }
 
+    override fun hello() {
+        TODO("Not yet implemented")
+    }
+
 
 }

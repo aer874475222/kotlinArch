@@ -37,8 +37,7 @@ class CoverFragmentActivity : BaseActivity<CoverContact.CoverPrensenter>(), Cove
     }
 
     private fun showFragment(targetFragment: Fragment) {
-        val transaction = supportFragmentManager
-            .beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
         if (!targetFragment.isAdded) {
             if (currentFragment != null) {
                 transaction.hide(currentFragment!!)

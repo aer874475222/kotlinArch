@@ -32,9 +32,14 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
 }
@@ -51,18 +56,19 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     kapt 'com.github.bumptech.glide:compiler:4.10.0'
     implementation 'jp.wasabeef:glide-transformations:4.0.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
     implementation 'org.ligboy.retrofit2:converter-fastjson-android:2.2.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.0'
-    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
-        exclude group: 'org.json', module: 'json'
-    }
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+
     implementation 'androidx.cardview:cardview:1.0.0'
-
     //下拉刷新
-
     implementation project(path: ':kotlin_arch')
-    kapt 'androidx.databinding:databinding-compiler:4.0.0'
+
+
+
+
 
 }

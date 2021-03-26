@@ -36,8 +36,7 @@ class NormalFragmentActivity : AppCompatActivity() {
     }
 
     private fun showFragment(targetFragment: Fragment) {
-        val transaction = supportFragmentManager
-            .beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
         if (!targetFragment.isAdded) {
             if (currentFragment != null) {
                 transaction.hide(currentFragment!!)
@@ -54,6 +53,5 @@ class NormalFragmentActivity : AppCompatActivity() {
         }
         currentFragment = targetFragment
     }
-
 
 }

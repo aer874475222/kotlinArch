@@ -1,7 +1,7 @@
 package com.czq.kotlin_arch.basePage.base
 
 import android.content.Context
-import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
+import autodispose2.androidx.lifecycle.AndroidLifecycleScopeProvider
 
 interface IBaseView {
 

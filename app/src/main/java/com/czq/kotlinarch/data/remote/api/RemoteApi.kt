@@ -1,7 +1,7 @@
 package com.czq.kotlinarch.data.remote.api
 
 import com.czq.kotlinarch.data.model.*
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -21,7 +21,9 @@ interface RemoteApi {
     fun getGames(@Query("pageNum") pageNum: Int, @Query("pageSize") pageSize: Int): Observable<Result<Page<Game>>>
 
     @GET("archServer/feeds")
-    fun getArticleFeeds(@Query("pageSize") pageSize: Int, @Query("offsetId") offsetId: String?, @Query("direction") direction: String)
+    fun getArticleFeeds(@Query("pageSize") pageSize: Int,
+                        @Query("offsetId") offsetId: String?,
+                        @Query("direction") direction: String)
             : Observable<Result<List<FeedArticle>>>
 
 }

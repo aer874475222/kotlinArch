@@ -19,10 +19,10 @@ class CoverFragment : BaseFragment<CoverContact.CoverPrensenter>(), CoverContact
 
     override fun initView() {
         super.initView()
-
     }
 
     override fun getLayoutId(): Int {
         return R.layout.fragment_cover
     }
+
 }

@@ -30,4 +30,8 @@ class CoverActivity : BaseActivity<CoverContact.CoverPrensenter>(), CoverContact
     override fun getLayoutId(): Int {
         return R.layout.activity_cover
     }
+
+    override fun needTitle(): Boolean {
+        return false
+    }
 }

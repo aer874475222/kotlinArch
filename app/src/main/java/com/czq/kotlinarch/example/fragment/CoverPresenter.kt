@@ -1,9 +1,9 @@
 package com.czq.kotlinarch.example.fragment
 
+import autodispose2.autoDispose
 import com.czq.kotlinarch.data.remote.RemoteDataRepository
-import com.uber.autodispose.lifecycle.autoDisposable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class CoverPresenter(var mView: CoverContact.CoverView) : CoverContact.CoverPrensenter {
     val mRemoteDataRepository: RemoteDataRepository by lazy {
@@ -16,7 +16,7 @@ class CoverPresenter(var mView: CoverContact.CoverView) : CoverContact.CoverPren
         mRemoteDataRepository.getUser()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .autoDisposable(mView.autoDispose())
+            .autoDispose(mView.autoDispose())
             .subscribe({ it ->
                 mView.showContent()
             }, {

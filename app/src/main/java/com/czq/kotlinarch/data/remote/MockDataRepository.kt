@@ -4,14 +4,15 @@ import com.alibaba.fastjson.TypeReference
 import com.czq.kotlin_arch.common.util.MockUtil
 import com.czq.kotlinarch.App
 import com.czq.kotlinarch.data.model.*
-import io.reactivex.Observable
+import com.google.gson.reflect.TypeToken
+import io.reactivex.rxjava3.core.Observable
 import java.util.concurrent.TimeUnit
 
 class MockDataRepository() {
 
     fun getChallengeRecommond(): Observable<Page<ChallengeRecomand>> {
         return Observable.just(MockUtil.getMockModel(App.application, "challenge_recommond.json",
-            object : TypeReference<Page<ChallengeRecomand>>() {}
+            object : TypeToken<Page<ChallengeRecomand>>() {}
         )).delay(1, TimeUnit.SECONDS)
     }
 
@@ -42,7 +43,7 @@ class MockDataRepository() {
             MockUtil.getMockModel(
                 App.application,
                 "game.json",
-                object : TypeReference<Page<Game>>() {})
+                object : TypeToken<Page<Game>>() {})
         )
             .delay(1, TimeUnit.SECONDS)
     }
@@ -52,7 +53,7 @@ class MockDataRepository() {
             MockUtil.getMockModel(
                 App.application,
                 "feeds.json",
-                object : TypeReference<List<FeedArticle>>() {})
+                object : TypeToken<List<FeedArticle>>() {})
         )
             .delay(1, TimeUnit.SECONDS)
     }

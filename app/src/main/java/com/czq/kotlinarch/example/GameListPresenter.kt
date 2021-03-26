@@ -1,15 +1,16 @@
 package com.czq.kotlinarch.example
 
 import android.annotation.SuppressLint
+import autodispose2.autoDispose
 import com.czq.kotlin_arch.basePage.base.BasePagingPrensenterImpl
 import com.czq.kotlin_arch.paging.PagingStrategy
 import com.czq.kotlin_arch.paging.normal.NormalPagingInfo
 import com.czq.kotlin_arch.paging.normal.NormalPagingStrategy
 import com.czq.kotlinarch.data.remote.RemoteDataRepository
 import com.czq.kotlinarch.data.viewModel.GameDate
-import com.uber.autodispose.lifecycle.autoDisposable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+
 
 open class GameListPresenter(override val mView: GameListContact.PagingListView) :
     BasePagingPrensenterImpl(mView),
@@ -30,7 +31,7 @@ open class GameListPresenter(override val mView: GameListContact.PagingListView)
         mRemoteDataRepository.getGames(pageInfo.pageNum, pageInfo.pageSize)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .autoDisposable(mView.autoDispose())
+            .autoDispose(mView.autoDispose())
             .subscribe({ it ->
                 if (pageInfo.isFirstPage()) {
                     datasource.clear()

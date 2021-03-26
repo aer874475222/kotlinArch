@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import autodispose2.androidx.lifecycle.AndroidLifecycleScopeProvider
 import com.czq.kotlin_arch.component.cover.CoverFrameLayout
 import com.hjq.toast.ToastUtils
 import com.hwangjr.rxbus.RxBus
-import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import kotlinx.android.synthetic.main.fragment_base.*
 
 abstract class BaseFragment<T : IBasePrensenter> : Fragment(), IBaseView {

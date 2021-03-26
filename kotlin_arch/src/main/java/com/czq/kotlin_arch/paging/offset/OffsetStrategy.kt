@@ -1,6 +1,7 @@
 package com.czq.kotlin_arch.paging.offset
 
 import com.czq.kotlin_arch.paging.PagingStrategy
+import io.reactivex.rxjava3.core.Observable
 
 class OffsetStrategy(pageSize: Int = 20, offsetIdKey: String) : PagingStrategy {
 
@@ -12,9 +13,7 @@ class OffsetStrategy(pageSize: Int = 20, offsetIdKey: String) : PagingStrategy {
         this.offsetIdKey = offsetIdKey
         this.pageInfo.type = "new"
     }
-
     override fun addPage(info: Any?) {
-
         pageInfo.type = "old"
         val arr = info as? List<Any>
         val obj = arr?.last()

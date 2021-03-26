@@ -9,11 +9,11 @@ import android.view.View
 import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import autodispose2.androidx.lifecycle.AndroidLifecycleScopeProvider
 import com.czq.kotlin_arch.component.cover.CoverFrameLayout
 import com.hjq.toast.ToastUtils
 import com.hwangjr.rxbus.RxBus
 import com.orhanobut.logger.Logger
-import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
 import kotlinx.android.synthetic.main.activity_base.*
 
 abstract class BaseActivity<T : IBasePrensenter> : AppCompatActivity(), IBaseView {

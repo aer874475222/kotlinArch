@@ -1,5 +1,6 @@
 package com.czq.kotlin_arch.paging.offset
 
+
 class OffsetPageInfo  {
     var type = "new"
     var pageSize = 20
@@ -11,5 +12,7 @@ class OffsetPageInfo  {
 
     fun isFirstPage(): Boolean {
         return type == "new"
+      //  Observable.zip
+
     }
 }
