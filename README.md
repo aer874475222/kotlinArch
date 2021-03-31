@@ -1,6 +1,6 @@
 # kotlinArch[![](https://jitpack.io/v/manondidi/kotlinArch.svg)](https://jitpack.io/#manondidi/kotlinArch)
 kotlin开发脚手架
-
+...
 > 首先这是个一个mvp框架  
 > 我帮你做好了mvp的基类  
 > 并做好相关的模板, 一键生成mvp 三个类 activity fragment各一套  
